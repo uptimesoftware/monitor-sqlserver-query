@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uptime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uptimesoftware.com/erdc/erdc erdc"
+	xmlns="http://www.uptimesoftware.com/erdc/erdc" xmlns:upt="http://www.uptimesoftware.com/erdc/erdc" version="4.0"
+	target_grouping="other">
+
+	<class>SQLServer Query Monitor</class>
+	<exec>JAVA_PLUGIN:UptimeMonitorSQLServerQuery</exec>
+	<erdc_version>1.0</erdc_version>
+	<category>Applications - Databases</category>
+	<category_related></category_related>
+	<grid_info>
+		<supported_versions>7.3</supported_versions>
+		<supported_platforms>windows, linux</supported_platforms>
+		<upgrade_in_place>true</upgrade_in_place>
+		<requires_agent_scripts>false</requires_agent_scripts>
+	</grid_info>
+
+	<elements>
+		<element name="authenticationMethod" parameter_type="input" data_type="string" gui_basic="1" range_type="0"
+			units="">
+			<control_options>size:8</control_options>
+			<default_value>Windows Authentication</default_value>
+			<short_description>Authentication Method</short_description>
+			<long_description>Authentication Method</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<single_select type="dropdown">
+					<value>Windows Authentication</value>
+					<value>SQL Server Authentication</value>
+				</single_select>
+			</gui_type>
+		</element>
+
+		<element name="port" parameter_type="input" data_type="integer" gui_basic="1" range_type="0">
+			<control_options> size:2 </control_options>
+			<default_value>1433</default_value>
+			<short_description>SQL Server Port</short_description>
+			<long_description>The port that the database is listening on
+			</long_description>
+			<validation_rule>
+				<integer />
+			</validation_rule>
+			<error_message>
+				<integer> The port must be an integer value </integer>
+			</error_message>
+			<gui_type>
+				<integer />
+			</gui_type>
+		</element>
+
+		<element name="domain" parameter_type="input" data_type="string" gui_basic="1" range_type="0">
+			<control_options>width:20em</control_options>
+			<default_value />
+			<short_description> Domain </short_description>
+			<long_description> Domain to use for Windows Authentication
+			</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<string />
+			</gui_type>
+		</element>
+
+		<element name="username" parameter_type="input" data_type="string" gui_basic="1" range_type="0">
+			<control_options>width:20em</control_options>
+			<default_value />
+			<short_description> Username </short_description>
+			<long_description> Username to login to server with
+			</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<string />
+			</gui_type>
+		</element>
+
+		<element name="password" parameter_type="input" data_type="string" gui_basic="1" range_type="0">
+			<control_options>width:20em</control_options>
+			<default_value />
+			<short_description> Password </short_description>
+			<long_description> Password to login to server with </long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<password />
+			</gui_type>
+		</element>
+
+		<element name="instance" parameter_type="input" data_type="string" gui_basic="1" range_type="0">
+			<control_options>width:40em</control_options>
+			<default_value />
+			<short_description>Instance</short_description>
+			<long_description>Server instance to connect to</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<string />
+			</gui_type>
+		</element>
+
+		<element name="database" parameter_type="input" data_type="string" gui_basic="1" range_type="0">
+			<control_options>width:40em</control_options>
+			<default_value />
+			<short_description>Database </short_description>
+			<long_description>Database to connect to </long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<string />
+			</gui_type>
+		</element>
+
+		<element name="sqlQuery" parameter_type="input" data_type="string" gui_basic="1" range_type="0">
+			<control_options>rows:4; cols:40</control_options>
+			<default_value />
+			<short_description> SQL Query </short_description>
+			<long_description> SQL Query to execute on the server </long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<textarea />
+			</gui_type>
+		</element>
+
+		<element name="numberOutput" parameter_type="output" data_type="integer" gui_basic="1" range_type="0">
+			<control_options>size:40</control_options>
+			<default_value />
+			<short_description>Numeric Result</short_description>
+			<long_description>The (optional) numeric value to evaluate in the returned data</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<integer />
+			</gui_type>
+		</element>
+
+		<element name="textOutput" parameter_type="output" data_type="string" gui_basic="1" range_type="0">
+			<control_options>size:40</control_options>
+			<default_value />
+			<short_description>Text Result</short_description>
+			<long_description>The (optional) text to look for in the returned data</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<string />
+			</gui_type>
+		</element>
+
+		<element name="rowCounter" parameter_type="output" data_type="integer" gui_basic="1" range_type="0">
+			<control_options>size:40</control_options>
+			<default_value />
+			<short_description>Number of row</short_description>
+			<long_description>The number of row in a returned data
+			</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<integer />
+			</gui_type>
+		</element>
+
+		<element name="timer" parameter_type="output" data_type="integer" gui_basic="0" range_type="0" units="ms">
+			<control_options>size:8</control_options>
+			<default_value />
+			<short_description>Response time</short_description>
+			<long_description>Response time in ms</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<integer />
+			</gui_type>
+		</element>
+	</elements>
+	<help>Query SQLServer and return the results to up.time</help>
+</uptime>
