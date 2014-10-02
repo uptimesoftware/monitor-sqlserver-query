@@ -166,13 +166,13 @@ public class MonitorSQLServerQuery extends Plugin {
 			String output = extractFromResultSet(resultSet).trim();
 			switch (isLongDoubleOrText(output)) {
 			case OUTPUT_TYPE_LONG:
-				addVariable("numberoutput", longValue);
+				addVariable("numberOutput", longValue);
 				break;
 			case OUTPUT_TYPE_DOUBLE:
-				addVariable("numberoutput", doubleValue);
+				addVariable("numberOutput", doubleValue);
 				break;
 			case OUTPUT_TYPE_STRING:
-				addVariable("textoutput", output);
+				addVariable("textOutput", output);
 				break;
 			}
 			// set number of row in result set to output.
